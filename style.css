@@ -1,4 +1,67 @@
 html{
-    font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
-    box-sizing: border-box;
+    font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem.the default browser font is 16px and when you multiply that by 62.5, it equals to 10px which equals to 1 rem */
+    box-sizing: border-box; /*it's easier to manage boxes, padding, border & margin */ 
 }
+body{
+    margin:0; /* removing margins around the body by setting it to 0*/
+    height: 100vh; /*view port height of 100*/
+    font-size: 1.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*layout*/
+.grid-container{
+    display: grid; /*it's flexible and it's used to position items with grid lines*/
+    grid-template-areas: /*another method for positioning items and it specifies areas within the grid layout*/
+        'header' /*this is like a placeholder*/
+        'main'
+        'footer';
+    grid-template-columns: 1fr; /* 1fr=1 fragment representing one column. It's a unit which represents a fraction of the available space in the grid container*/
+    grid-template-rows: 5rem 1fr 5rem; /* 50 px & one row only*/
+    height: 100%;
+}
+header{
+    grid-area: header; /*the header element connects to the header template above*/
+    background-color: #203040;
+}
+main{
+    grid-area: main;
+    padding: 1rem;
+}
+footer{
+    grid-area: footer;
+    background-color: #203040;
+    color: #ffffff; 
+}
+/* common classes:*/
+a {
+    text-decoration: none;  /* removes underline from links*/
+}
+a:hover {
+    color: #ff8000; /*if someone hovers on a link, change color to orange*/
+}
+
+/* header */
+header a{
+    color: #ffffff;
+    padding: 1rem; /*this is for all links inside the header*/
+}
+
+
+
+
+
+/* row class - Use flex on the header to put Amazona on the left side
+and cart & sign in on the right side.To use flex,create a row class
+This will create items next to each other,not in seperate lines 
+To make rows responsive, set flex-wrap: wrap; so that if there's not enough space
+the row will be in a seperate line. Also create maximum distance between items in a row by
+justify content: to space-between. The last setting is aligning items to the center
+You can now use rows inside index.html as a class for header because the child divs within the header will be in one line*/
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
