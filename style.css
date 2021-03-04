@@ -46,10 +46,6 @@ header a{
     padding: 1rem; /*this is for all links inside the header*/
 }
 
-
-
-
-
 /* row class - Use flex on the header to put Amazona on the left side
 and cart & sign in on the right side.To use flex,create a row class
 This will create items next to each other,not in seperate lines 
