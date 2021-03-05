@@ -32,7 +32,7 @@ footer{
     background-color: #203040;
     color: #ffffff; 
 }
-/* common classes:*/
+/* common classes (for links)*/
 a {
     text-decoration: none;  /* removes underline from links*/
 }
@@ -44,6 +44,11 @@ a:hover {
 header a{
     color: #ffffff;
     padding: 1rem; /*this is for all links inside the header*/
+}
+a.brand{
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 /* row class - Use flex on the header to put Amazona on the left side
@@ -60,4 +65,8 @@ You can now use rows inside index.html as a class for header because the child d
     align-items: center;
 }
 
+.row.center{
+    justify-content: center;
+
+}
 
