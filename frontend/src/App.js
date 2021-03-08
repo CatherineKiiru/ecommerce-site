@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <title>Amazona</title>
-</head>
-<body>
-<div class="grid-container">
+import React from 'react';
+
+function App() {
+  return (
+    <div class="grid-container">
     <header class="row">  <!--the two divs within the header are the child of the header-->
         <div>
             <a class="brand" href="index.html">amazona</a>
@@ -19,11 +13,9 @@
         </div>
     </header>
     <main>
-        <div class="row center"> <!---This class means the items will in in a row & center aligned-->
-<!---card 1--->
+        <div class="row center"> 
             <div class="card">
                 <a href="product.html">
-                    <!---image size: 680px by 830px-->
                     <img class="medium" src="./images/p1.jpg" alt="">
                 </a>
                 <div class="card-body">
@@ -40,10 +32,9 @@
                     <div class="price">$120</div>
                 </div>
             </div>
-<!---card 2--->
             <div class="card">
                 <a href="product.html">
-                    <!---image size: 680px by 830px-->
+                    
                     <img class="medium" src="./images/p1.jpg" alt="">
                 </a>
                 <div class="card-body">
@@ -55,15 +46,15 @@
                         <span><i class="fa fa-star"></i></span>
                         <span><i class="fa fa-star"></i></span>
                         <span><i class="fa fa-star-half-o"></i></span>
-                        <span><i class="fa fa-star-o"></i></span> <!--the 'o' stands for outline,used when you want to reduce the number if starts-->
+                        <span><i class="fa fa-star-o"></i></span> 
                     </div>
                     <div class="price">$120</div>
                 </div>
             </div>
-<!---card 3--->
+
             <div class="card">
                 <a href="product.html">
-                    <!---image size: 680px by 830px-->
+                  
                     <img class="medium" src="./images/p1.jpg" alt="">
                 </a>
                 <div class="card-body">
@@ -80,10 +71,10 @@
                     <div class="price">$120</div>
                 </div>
             </div>
-<!---card 4--->
+
             <div class="card">
                 <a href="product.html">
-                    <!---image size: 680px by 830px-->
+                    
                     <img class="medium" src="./images/p1.jpg" alt="">
                 </a>
                 <div class="card-body">
@@ -100,10 +91,10 @@
                     <div class="price">$120</div>
                 </div>
             </div>
-<!---card 5--->
+
             <div class="card">
                 <a href="product.html">
-                    <!---image size: 680px by 830px-->
+                    
                     <img class="medium" src="./images/p1.jpg" alt="">
                 </a>
                 <div class="card-body">
@@ -120,10 +111,10 @@
                     <div class="price">$120</div>
                 </div>
             </div>
-<!---card 6--->
+
             <div class="card">
                 <a href="product.html">
-                    <!---image size: 680px by 830px-->
+                    
                     <img class="medium" src="./images/p1.jpg" alt="">
                 </a>
                 <div class="card-body">
@@ -144,25 +135,7 @@
     </main>
     <footer class="row center">All rights reserved</footer>
 </div>
-</body>
-</html>
+  );
+}
 
-<!-------Notes--------
-    1. Div - A html element used to create different sections in the document
-    2. The HTML has 3 sections i.e. the header, main and footer sections
-    3. Use flexbox to create product lists and to place them next to each other
-    4. Use font awesome to create the ratings stars
-    5. Use card elements to create borders around items
-Create react app:
-1. In a new terminal type npx create-react-app frontend
-2. React packages will start installing, takes a few minutes
-3. Once installed, type cd frontend, then npm start
-4. Remove unused files
-5. Copy index.html content to App.js
-6. copy style.css content to index.css
-7. Replace class with class name
-
-
-
-
-
+export default App;
