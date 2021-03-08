@@ -33,6 +33,15 @@ footer{
     color: #ffffff; 
 }
 /* common classes (for links)*/
+h1{
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+h2{
+    font-size: 1.6rem;
+    padding: 1rem 0;
+}
+
 a {
     text-decoration: none;  /* removes underline from links*/
 }
@@ -50,7 +59,6 @@ a.brand{
     font-size: 3rem;
     font-weight: bold;
 }
-
 /* row class - Use flex on the header to put Amazona on the left side
 and cart & sign in on the right side.To use flex,create a row class
 This will create items next to each other,not in seperate lines 
@@ -64,9 +72,36 @@ You can now use rows inside index.html as a class for header because the child d
     justify-content: space-between;
     align-items: center;
 }
-
 .row.center{
     justify-content: center;
-
+}
+/* image */
+img {
+    border-radius: 0.5rem;
+}
+img.medium {
+    max-width: 29rem;
+    width: 100%;
+}
+/*card*/
+.card {
+    border: 0.1rem #c0c0c0 solid;
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+.card-body {
+    padding: 1rem;
+}
+.card-body > *{ /* "> *" means every child item of card body*/
+    margin-bottom: 0.5rem;
+}
+.price{
+    font-size: 2rem;
+}
+/* Rating */
+.rating span {
+    color: #f0c040;
+    margin: 0.1rem;
 }
 
