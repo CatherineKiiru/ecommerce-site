@@ -1,13 +1,112 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+html{
+  font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem.the default browser font is 16px and when you multiply that by 62.5, it equals to 10px which equals to 1 rem */
+  box-sizing: border-box; /*it's easier to manage boxes, padding, border & margin */ 
+}
+body{
+  margin:0; /* removing margins around the body by setting it to 0*/
+  height: 100vh; /*view port height of 100*/
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  height: 100%; /* the reason for using root is due to having root in the public index.html*/
 }
+/*layout*/
+.grid-container{
+  display: grid; /*it's flexible and it's used to position items with grid lines*/
+  grid-template-areas: /*another method for positioning items and it specifies areas within the grid layout*/
+      'header' /*this is like a placeholder*/
+      'main'
+      'footer';
+  grid-template-columns: 1fr; /* 1fr=1 fragment representing one column. It's a unit which represents a fraction of the available space in the grid container*/
+  grid-template-rows: 5rem 1fr 5rem; /* 50 px & one row only*/
+  height: 100%;
+}
+header{
+  grid-area: header; /*the header element connects to the header template above*/
+  background-color: #203040;
+}
+main{
+  grid-area: main;
+  padding: 1rem;
+}
+footer{
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffffff; 
+}
+/* common classes (for links)*/
+h1{
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+h2{
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+a {
+  text-decoration: none;  /* removes underline from links*/
+}
+a:hover {
+  color: #ff8000; /*if someone hovers on a link, change color to orange*/
+}
+
+/* header */
+header a{
+  color: #ffffff;
+  padding: 1rem; /*this is for all links inside the header*/
+}
+a.brand{
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: bold;
+}
+/* row class - Use flex on the header to put Amazona on the left side
+and cart & sign in on the right side.To use flex,create a row class
+This will create items next to each other,not in seperate lines 
+To make rows responsive, set flex-wrap: wrap; so that if there's not enough space
+the row will be in a seperate line. Also create maximum distance between items in a row by
+justify content: to space-between. The last setting is aligning items to the center
+You can now use rows inside index.html as a class for header because the child divs within the header will be in one line*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.row.center{
+  justify-content: center;
+}
+/* image */
+img {
+  border-radius: 0.5rem;
+}
+img.medium {
+  max-width: 29rem;
+  width: 100%;
+}
+/*card*/
+.card {
+  border: 0.1rem #c0c0c0 solid;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+.card-body {
+  padding: 1rem;
+}
+.card-body > *{ /* "> *" means every child item of card body*/
+  margin-bottom: 0.5rem;
+}
+.price{
+  font-size: 2rem;
+}
+/* Rating */
+.rating span {
+  color: #f0c040;
+  margin: 0.1rem;
+}
+
