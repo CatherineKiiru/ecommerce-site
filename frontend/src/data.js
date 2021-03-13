@@ -67,5 +67,14 @@ const data = {
             numReviews:15,
             description:'high quality product'
         },
-    ]
-}
+    ],
+};
+export default data;
+
+
+/* Notes
+1. Updated the value of products above
+2. Data.JS is the source of products 
+
+
+---*/

@@ -1,4 +1,5 @@
 import React from 'react';
+import data from './data';
 function App() {
   return (
 <div className="grid-container">
@@ -12,114 +13,30 @@ function App() {
         </div>
     </header>
     <main>
-        <div className="row center"> 
-            <div className="card">
-                <a href="product.html">
-                    <img className="medium" src="./images/p1.jpg" alt=""/>
-                </a>
-                <div className="card-body">
+        <div> 
+            <div className="row center">
+                {data.products.map((product) => (
+                    <div key={product._id} className="card">
                     <a href="product.html">
-                        <h2>Nike Slim shirts</h2>
+                        <img className="medium" src="./images/p1.jpg" alt=""/>
                     </a>
-                    <div className="rating">
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
+                    <div className="card-body">
+                        <a href="product.html">
+                <h2>{product.name}</h2>
+                        </a>
+                        <div className="rating">
+                            <span><i className="fa fa-star"></i></span>
+                            <span><i className="fa fa-star"></i></span>
+                            <span><i className="fa fa-star"></i></span>
+                            <span><i className="fa fa-star"></i></span>
+                            <span><i className="fa fa-star"></i></span>
+                        </div>
+                        <div className="price">$120</div>
                     </div>
-                    <div className="price">$120</div>
-                </div>
-            </div>
-            <div className="card">
-                <a href="product.html">
-                    <img className="medium" src="./images/p3.jpg" alt=""/>
-                </a>
-                <div className="card-body">
-                    <a href="product.html">
-                        <h2>Nike Slim shirts</h2>
-                    </a>
-                    <div className="rating">
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star-half-o"></i></span>
-                        <span><i className="fa fa-star-o"></i></span> 
-                    </div>
-                    <div className="price">$120</div>
-                </div>
-            </div>
-            <div className="card">
-                <a href="product.html">
-                    <img className="medium" src="./images/p1.jpg" alt=""/>
-                </a>
-                <div className="card-body">
-                    <a href="product.html">
-                        <h2>Nike Slim shirts</h2>
-                    </a>
-                    <div className="rating">
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                    </div>
-                    <div className="price">$120</div>
-                </div>
-            </div>
-            <div className="card">
-                <a href="product.html">
-                    <img className="medium" src="./images/p1.jpg" alt=""/>
-                </a>
-                <div className="card-body">
-                    <a href="product.html">
-                        <h2>Nike Slim shirts</h2>
-                    </a>
-                    <div className="rating">
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                    </div>
-                    <div className="price">$120</div>
-                </div>
-            </div>
-            <div className="card">
-                <a href="product.html">
-                    <img className="medium" src="./images/p3.jpg" alt=""/>
-                </a>
-                <div className="card-body">
-                    <a href="product.html">
-                        <h2>Nike Slim shirts</h2>
-                    </a>
-                    <div className="rating">
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                    </div>
-                    <div className="price">$120</div>
-                </div>
-            </div>
-            <div className="card">
-                <a href="product.html">
-                    <img className="medium" src="./images/p1.jpg" alt=""/>
-                </a>
-                <div className="card-body">
-                    <a href="product.html">
-                        <h2>Nike Slim shirts</h2>
-                    </a>
-                    <div className="rating">
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                        <span><i className="fa fa-star"></i></span>
-                    </div>
-                    <div className="price">$120</div>
-                </div>
+                </div> 
+                    ))
+                } 
+                
             </div>
         </div>
     </main>
@@ -128,3 +45,15 @@ function App() {
   );
 }
 export default App;
+
+/*--Notes:
+1.You don't have to have multiple static carts: You can have
+  one cart by using map functions to convert JS items (from data.js) to HTML elements
+2.If you want to put Javascript code inside your react code, use curly braces (line no. 18)
+3.React helps in creating large web apps that can change data without reloading the page
+  and affecting the user interface
+4. 
+
+
+
+--*/
