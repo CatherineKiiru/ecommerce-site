@@ -5,11 +5,11 @@ function App() {
 <div className="grid-container">
     <header className="row">
         <div>
-            <a className="brand" href="index.html">Shoppa</a>
+            <a className="brand" href="/">Shoppa</a>
         </div>
         <div>
-            <a href="cart.html">Cart</a>
-            <a href="signin.html">Sign in</a>
+            <a href="/cart">Cart</a>
+            <a href="/signin">Sign in</a>
         </div>
     </header>
     <main>
@@ -18,7 +18,11 @@ function App() {
                 {data.products.map((product) => (
                     <div key={product._id} className="card">
                     <a href={`/product/${product._id}`}>
-                        <img className="medium" src={product.image} alt="product._id"/>
+                        <img 
+                        className="medium" 
+                        src={product.image} 
+                        alt={product.name}
+                        />
                     </a>
                     <div className="card-body">
                         <a href={`/product/${product._id}`}>
@@ -31,7 +35,7 @@ function App() {
                             <span><i className="fa fa-star"></i></span>
                             <span><i className="fa fa-star"></i></span>
                         </div>
-                        <div className="price">$120</div>
+                <div className="price">${product.price}</div>
                     </div>
                 </div> 
                     ))
@@ -71,6 +75,13 @@ export default App;
    Copy the href info and paste it for the product name (line 24) because
    image and name should link to the same location. Failure to do this will result in your data
    not compiling in React
-11. After the above, you should update the image source (src)
+11.After the above, you should update the image source (src) to product.image and alt to 
+   product.name
+
+Lesson 1 review:
+1.We created a react app using npx create react apt command
+2.We set the name of the application to 'frontend' 
+3.We moved the content of static HTML document that we created to App.JS inside
+  React application and changed the static elements to dynamic ones.
 
 --*/
