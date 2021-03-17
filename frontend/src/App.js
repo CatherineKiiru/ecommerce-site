@@ -1,9 +1,11 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Product from './components/Product';
 import data from './data';
 
 function App() {
   return (
+     <BrowserRouter>
 <div className="grid-container">
     <header className="row">
         <div>
@@ -15,6 +17,8 @@ function App() {
         </div>
     </header>
     <main>
+      <Route path="/product/:id" component={ProductScreen}></Route>
+      <Route path="/" component={HomeScreen} exact></Route>  
         <div> 
             <div className="row center">
                 {data.products.map((product) => (
@@ -26,6 +30,7 @@ function App() {
     </main>
     <footer className="row center">All rights reserved</footer>
 </div>
+</BrowserRouter>
   );
 }
 export default App;
@@ -85,4 +90,11 @@ Lesson 2 review:
    to product component (line 21)
 4. Finally, we set the last span in the rating component (Rating.js) to dark grey
 
+Lesson 3 notes:
+1. This part involves creating a product details screen. There will be 2 screens i.e. 
+   home screen & product details screen using React Router DOMS to creat routes in React application.
+2. Start by installing react-router-dom then go to App.js and wrap the whole div in the <BrowserRouter></BrowserRouter>
+3. Proceed to create routes in the main section (line 20)
+4. Line 21 - set the attribute to exact which means that only if url is exactly equal to "/", the render the element in line 21
+5. Line 20 - :id is a parameter and it contains the id of your product.So when a user enters this product id, you'll render the component indicated
 --*/
