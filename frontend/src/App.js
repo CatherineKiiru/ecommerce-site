@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Product from './components/Product';
-import data from './data';
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
+
 
 function App() {
   return (
@@ -19,14 +20,7 @@ function App() {
     <main>
       <Route path="/product/:id" component={ProductScreen}></Route>
       <Route path="/" component={HomeScreen} exact></Route>  
-        <div> 
-            <div className="row center">
-                {data.products.map((product) => (
-                  <Product key={product._id} product={product}></Product> 
-                    ))
-                }  
-            </div>
-        </div>
+        
     </main>
     <footer className="row center">All rights reserved</footer>
 </div>
@@ -76,6 +70,7 @@ Lesson 1 review:
 2. We set the name of the application to 'frontend' 
 3. We moved the content of static HTML document that we created to App.JS inside
    React application and changed the static elements to dynamic ones.
+4. To launch a React app use the command "npm start react app" - this will launch the development server
 
 Lesson 2 notes:
    Modular & component based code - this is highly organized code that subdivides
@@ -93,8 +88,34 @@ Lesson 2 review:
 Lesson 3 notes:
 1. This part involves creating a product details screen. There will be 2 screens i.e. 
    home screen & product details screen using React Router DOMS to creat routes in React application.
-2. Start by installing react-router-dom then go to App.js and wrap the whole div in the <BrowserRouter></BrowserRouter>
-3. Proceed to create routes in the main section (line 20)
+2. Start by installing react-router-dom then go to App.js and wrap the whole div in the <BrowserRouter></BrowserRouter> tag
+   To install the react router dom, go to your terminal, CD frontend folder and type npm install react-router-dom then press enter
+3. Proceed to define routes in the main section (line 20)
 4. Line 21 - set the attribute to exact which means that only if url is exactly equal to "/", the render the element in line 21
 5. Line 20 - :id is a parameter and it contains the id of your product.So when a user enters this product id, you'll render the component indicated
+
+Definitions:
+Routing - is the ability to move between different parts of an application when a user enters a URL or clicks an 
+         element e.g. a link, button, icon, image. When you add routing capabilities, you are able to transition from one 
+         view to another. The React-router library is what give you this ability. 
+Router - is a React package that give you the ability to move between different parts of an application. It allows us to 
+         build single-page web apps with navigation without the page refreshing as the user navigates
+React-Router - this package includes 3 routers i.e. BrowserRouter, HashRouter and MemoryRouter. For browser based applications,
+         BrowserRouter & HashRouter are ideal.
+BrowserRouter - Is used for applications which have a dynamic server that can handle any type of URL 
+HashRouter - Is used for static websites with a server that only responds to file requests that it knows about
+Note - Any router only expects one child.
+
+April 21st - I successfully debugged my code. React was not compiling due to a bug
+
+Lesson 4 notes - 21st April
+1. Once you create the home & product screens within the components folder under src, create a 
+   functional component by typing rfc + tab. Do the same for the product screen.
+   from App.js, move the div contents inside main to homescreen and productscreen. This is because 
+   we are showing the list of products and should be within the homescreen
+   Since we're importing products, cut product and data import from App.js and paste it at the top of homescreen
+   Import routes, product and homescreen
+2. To go back one folder, use 2 dots before a dash.
+
+
 --*/
