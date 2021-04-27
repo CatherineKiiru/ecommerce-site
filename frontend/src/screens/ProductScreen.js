@@ -23,11 +23,17 @@ export default function ProductScreen(props){
 
 
 /*--
-Notes on product screen
+Notes on product screen April 27th
 
-1. Products should be loaded from data.js. To do this, use the function:
+The product screen should show product image, details and a box that indicates the action 
+a user should execute on that page.
+To do this, go to the return div and set the class name to row, then create 3 columns (line 7)
+The row is the main container that will house the columns.
+Define the first column to 2 columns i.e. col-2. This will occupy twice the width of the screen
+
+Products should be loaded from data.js. To do this, use the function:
         const product = data.product (line 5)
-2. Find is the 
+Find is the 
 
 
 
