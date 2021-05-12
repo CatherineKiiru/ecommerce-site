@@ -9,13 +9,42 @@ export default function ProductScreen(props){
     return <div>
         <div className="row">
             <div className="col-2">
-                <img src={product.image} alt={product.name}></img>
+                <img className="large" src={product.image} alt={product.name}></img>
             </div>
             <div className="col-1">
-
+                <ul>
+                    <li><h1>{product.name}</h1></li>
+                    <li><rating rating={product.rating} numReviews={product.numReviews}></rating></li>
+                    <li>Price : ${product.price}</li>
+                    <li>Description: <p>{product.description}</p></li>
+                </ul>
             </div>
             <div className="col-1">
-
+                <div className="card card-body">
+                    <ul>
+                        <li>
+                            <div className="row">
+                                <div>Price</div>
+                                <div className="price">${product.price}</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="row">
+                                <div>Status</div>
+                                <div>
+                                     {product.countInStock>0?(
+                                     <span className="success">In Stock</span>
+                                     ) : (
+                                     <span className="error">Unavailable</span>
+                                     )}
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <button className="primary block">Add to Cart</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -53,11 +82,22 @@ Notes on product screen April 27th: building the product screen:
             return <div>Product Not Found</div>
         }
     Otherwise, if the product exists, the browser will render the product information
-8. 
 
+May 12th - continuation
+8. Add lists to the first information column(first col-1); ratings, price and product description
+        (Line 14-21)
+9. The second col-1 is the action column i.e. where users click on add to cart.
+        Set the className of the div to card card-body. This class is so that you can add a border and padding (line 22-33)
+        to the border, respectively.
+10. Under the 1st list (li), set the class name to row because you'll put price label and price value next to each other. (Line 26-28)
+        This requires you add another div for Price label and price value
 
+11. Under the 2nd list (li), To render the status, use conditional rendering i.e. if product.countInStock is greater than zero, render the span 
+        {product.countInStock>0? <span className="success"}></span>};
+        To show no stock, put a colon after the span above and set another span (line 35-39)
 
-
+12. Under the 3rd list, we'll have a button for users to click. Set the classname as primary block i.e.
+        Primary class for gold color and block class for the button to occupy the full width (line 43-45)
 
 
 
