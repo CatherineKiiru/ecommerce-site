@@ -80,6 +80,9 @@ You can now use rows inside index.html as a class for header because the child d
 .row.center{
   justify-content: center;
 }
+.row.top {
+  align-items: flex-start;
+}
 /* image */
 img {
   border-radius: 0.5rem;
@@ -110,6 +113,6 @@ img.medium {
   margin: 0.1rem;
 }
 .rating span:last-child{
-  color: black;
+  color: #404040;
 }
 

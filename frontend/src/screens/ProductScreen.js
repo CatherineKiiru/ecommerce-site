@@ -7,7 +7,7 @@ export default function ProductScreen(props){
         return <div>Product Not Found</div>;
     }
     return <div>
-        <div className="row">
+        <div className="row top">
             <div className="col-2">
                 <img className="large" src={product.image} alt={product.name}></img>
             </div>
@@ -99,6 +99,10 @@ May 12th - continuation
 12. Under the 3rd list, we'll have a button for users to click. Set the classname as primary block i.e.
         Primary class for gold color and block class for the button to occupy the full width (line 43-45)
 
+May 17th - continuation
+13. To stick the information items to the top, add a 'top' class to the row class name (line 10)
+        Then go to index.css and add a row.top style to align items to the top i.e.
+        .row.top{align-items:flex-start}
 
 
 
