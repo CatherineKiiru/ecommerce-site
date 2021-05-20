@@ -53,6 +53,14 @@ a {
 a:hover {
   color: #ff8000; /*if someone hovers on a link, change color to orange*/
 }
+ul{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+li {
+  margin-top: 1rem
+}
 
 /* header */
 header a{
@@ -82,6 +90,12 @@ You can now use rows inside index.html as a class for header because the child d
 }
 .row.top {
   align-items: flex-start;
+}
+.col-1{
+  flex: 1 1 25rem; /* this is shorthand for flex: grow shrink basis; The second 1 makes the column shrinkable, 25rem sets the width of this column */
+}
+.col-2{
+  flex: 2 1 50rem;
 }
 /* image */
 img {

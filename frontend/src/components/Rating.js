@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Rating(props) { /*create Rating component and pass props because we need to read 2 values i.e. rating & numReviews*/
+export default function rating(props) { /*create Rating component and pass props because we need to read 2 values i.e. rating & numReviews*/
     const {rating, numReviews} = props; /* insert your rating div from the product.JS file below*/
     return ( 
         <div className="rating">  

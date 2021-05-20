@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
+import Rating from '../components/Rating';
 import data from '../data';
 
 export default function ProductScreen(props){
@@ -7,14 +9,17 @@ export default function ProductScreen(props){
         return <div>Product Not Found</div>;
     }
     return <div>
+        <Link to="/">back to result</Link>
         <div className="row top">
             <div className="col-2">
-                <img className="large" src={product.image} alt={product.name}></img>
+                <img className="large" src={product.image} 
+                alt={product.name}
+                ></img>
             </div>
             <div className="col-1">
                 <ul>
                     <li><h1>{product.name}</h1></li>
-                    <li><rating rating={product.rating} numReviews={product.numReviews}></rating></li>
+                    <li><Rating rating={product.rating} numReviews={product.numReviews}></Rating></li>
                     <li>Price : ${product.price}</li>
                     <li>Description: <p>{product.description}</p></li>
                 </ul>
@@ -56,6 +61,8 @@ export default function ProductScreen(props){
 
 /*--
 Notes on product screen April 27th: building the product screen:
+
+ALWAYS REMEMBER TO MANUALLY IMPORT FROM DESIRED FILE OR LINK (Top of the product screen)
 
 1. The product screen should show specific product images, details and a box that indicates the action 
     a user should execute on that page.
@@ -102,8 +109,31 @@ May 12th - continuation
 May 17th - continuation
 13. To stick the information items to the top, add a 'top' class to the row class name (line 10)
         Then go to index.css and add a row.top style to align items to the top i.e.
-        .row.top{align-items:flex-start}
+        .row.top{align-items:flex-start} (refer to index.css,line no. 83)
 
+May 20th - continuation
+14. To add "Back to result":
+add <Link to="/">back to result</Link> in line 12, just before row-top.When you get an error page,
+        restart react by closing the current terminal (CTRL C) the typing in
+        the new terminal "npm start"
+15. To style the column information, got to index.css. Below row.top, type:
+            .col-1{
+                flex: 1 1 25rem *This is shorthand for flex: grow shrink basis. The second 1 makes the column shrinkable, 25rem sets the width of this column*
+            }.
+        Copy the style above for column 2 like this:
+            .col-2{
+                flex: 2 1 50rem;
+            } 
+16. To remove bullet points from the column information, use this style (line 56):
+            ul{
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+            } 
+17. For all list items, create a margin top to 1rem to create vertical space between items i.e. 
+            li {
+                margin-top: 1rem
+            }
 
 
 
