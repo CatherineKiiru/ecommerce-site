@@ -26,7 +26,7 @@ body{
 }
 header{
   grid-area: header; /*the header element connects to the header template above*/
-  background-color: #203040;
+  background-color: #385673;
 }
 main{
   grid-area: main;
