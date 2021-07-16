@@ -59,7 +59,7 @@ ul{
   list-style-type: none;
 }
 li {
-  margin-top: 1rem
+  margin-top: 1rem /*to create vertical space between items*/
 }
 
 /* header */

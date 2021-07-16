@@ -99,9 +99,11 @@ May 12th - continuation
 10. Under the 1st list (li), set the class name to row because you'll put price label and price value next to each other. (Line 26-28)
         This requires you add another div for Price label and price value
 
-11. Under the 2nd list (li), To render the status, use conditional rendering i.e. if product.countInStock is greater than zero, render the span 
+11. Under the 2nd list (li), To render the stock status(Whether item is in stock or unavailable), use conditional rendering i.e. if product.countInStock is greater than zero, render the span 
         {product.countInStock>0? <span className="success"}></span>};
-        To show no stock, put a colon after the span above and set another span (line 35-39)
+        To show no stock, put a colon after the span above and set another span to show unavailability i.e.
+        <span className="error">Unavailable</span>
+        Go to data.js and add the "CountInStock" property under price and specify the number of items for each product
 
 12. Under the 3rd list, we'll have a button for users to click. Set the classname as primary block i.e.
         Primary class for gold color and block class for the button to occupy the full width (line 43-45)
@@ -113,7 +115,7 @@ May 17th - continuation
 
 May 20th - continuation
 14. To add "Back to result":
-add <Link to="/">back to result</Link> in line 12, just before row-top.When you get an error page,
+add this tag: "<Link to="/">back to result</Link>"" in line 12, just before row-top.When you get an error page,
         restart react by closing the current terminal (CTRL C) the typing in
         the new terminal "npm start"
 15. To style the column information, got to index.css. Below row.top, type:
@@ -134,6 +136,7 @@ add <Link to="/">back to result</Link> in line 12, just before row-top.When you 
             li {
                 margin-top: 1rem
             }
+July 16th - Continuation
 
 
 
