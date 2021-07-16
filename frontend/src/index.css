@@ -129,4 +129,10 @@ img.medium {
 .rating span:last-child{
   color: #404040;
 }
-
+/*Alert*/ /*to change the status colors*/
+.success{
+  color: #20a020;
+}
+.error{
+  color: #a2020a;
+}
