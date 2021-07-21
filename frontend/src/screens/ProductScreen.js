@@ -136,13 +136,26 @@ add this tag: "<Link to="/">back to result</Link>"" in line 12, just before row-
             li {
                 margin-top: 1rem
             }
-July 16th - Continuation
+July 16th - 
+18. Added CountinStock property to data.js. Details added in note no. 11
 
-
-
-
-
-
+July 21
+19. Changed the color of the 'add to cart button, refer to index.css button element
+    Added a hover element to the button
+    Also made the images to be responsive to screen size by adding the element below
+    img.large{
+    width: 100%;
+    }
+20. This lesson focused on adding routing to the product page. We used react router to implement routing in our web application. 
+    1. We create a single page application to create multiple routes that renders different components of our web application.
+    2. We added homescreen
+    3. Added product screen
+    4. Updated data.js
+    5. Added countinstock as a new property to the products
+    6. In app.js, we imported browser routers & routes from react-router-dom
+    7. We defined 2 route paths for home screen and product screen
+    8. We installed a new react-router-dom package in json
+    9. In index.css, we styled lists, unordered lists, buttons, rows and columns 
 
 
 ---*/

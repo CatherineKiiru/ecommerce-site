@@ -46,7 +46,6 @@ h2{
   font-size: 1.6rem;
   padding: 1rem 0;
 }
-
 a {
   text-decoration: none;  /* removes underline from links*/
 }
@@ -61,7 +60,26 @@ ul{
 li {
   margin-top: 1rem /*to create vertical space between items*/
 }
-
+button{ /*styling the "add to cart" button*/
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border:0.1 rem #a4a4a4 solid;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+button:hover{ /*a dark border appears when you hover your pointer over "add to cart"*/
+  border: 0.1rem #404040 solid;
+}
+button.primary { /*setting the primary button into a gold background*/
+  background-color: #f0c040;
+}
+button.block{ /*setting the button into full width*/
+  width: 100%;
+}
 /* header */
 header a{
   color: #ffffff;
@@ -105,6 +123,9 @@ img.medium {
   max-width: 29rem;
   width: 100%;
 }
+img.large{ /*This element adjusts image size according to screen. It creates a responsive layout.*/
+  width: 100%;
+}
 /*card*/
 .card {
   border: 0.1rem #c0c0c0 solid;
@@ -129,7 +150,7 @@ img.medium {
 .rating span:last-child{
   color: #404040;
 }
-/*Alert*/ /*to change the status colors*/
+/*Alert*/ /*to change the stock status colors*/
 .success{
   color: #20a020;
 }
