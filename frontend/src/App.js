@@ -29,6 +29,8 @@ function App() {
 }
 export default App;
 
+
+
 /*--Lesson 1 Notes:
 1. You don't have to have multiple static carts: You can have
    one cart by using map functions to convert JS product items (from data.js) to HTML elements.

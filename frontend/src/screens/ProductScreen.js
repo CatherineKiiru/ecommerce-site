@@ -157,5 +157,22 @@ July 21
     8. We installed a new react-router-dom package in json
     9. In index.css, we styled lists, unordered lists, buttons, rows and columns 
 
+21. BUILDING THE BACKEND WITH NODE.JS - the plan
+    1. Create a Node.js server (place in the root folder i.e. ecommerce-site)
+    2. Run npm init in root folder (type npm init and press enter on all queries)
+    3. Create a backend folder within the root folder
+    4. Create server.js file. This file is the entry point for our backend application
+    5. Create an express server by typing "npm install express" command. Express is a node package that helps create easy servers
+       update package.json set type:module
+       Add .js to imports
+       npm install express
+    6. add start command as node backend/server.js
+    8. Require express
+    9. create route for / Server is ready
+    10. Move products.js from frontend to backend
+    11. create route for /api/products
+    12. return products
+    13. run npm start 
 
+    
 ---*/
