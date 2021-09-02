@@ -269,13 +269,72 @@ Note: in server side programming, you need to append the .js extension to your f
 9. A break down of the script above:
       We 'asked' nodemon to watch changes in the backend folder (--watch backend).
       When there is a change, run this command -> node --experimental-modules backend/server.js
-      The experimental module makes it possible for us to use es6 module in our node app
+      The experimental module makes it possible for us to use ES6 modules in our node app
       So instead of starting your server with node backend/server.js, you now use npm start.
-
-
 
 Note: installing development packages require two dashes i.e
 --save-dev nodemon
+
+# Loading products from backend
+1. Start by setting a proxy in package.json that points to 
+   the backend port i.e. the proxy is an address that points to the backend. Use the IP address of the local host. When a user sends a request to the API, it redirects your request to the backend.
+
+2. Install Axios. This is a library that sends ajax requests 
+   to the server. Install in the frontend folder with this command "npm install axios'.
+
+3. Next, edit your HomeScreen.js file. Instead of fetching 
+   data from data.js in your frontend folder, fetch data from /api/products in your backend folder.
+
+4. Start by defining a React hook by defining a use state. 
+   The usage of a React hook to manage the state of your React component is demonstrated below:
+    `const [products, SetProducts] = useState ([])` 
+   
+   The default value of products is an empty array. When you want to change the value of products, use the setProducts function.
+
+5. Import useState from React and paste it at the top of 
+   your HomScreen.js file.
+
+6. Once you define the hooks, fill in the products. To do 
+   this, apply the useEffect function. 
+   
+   useEffect is another hook that tells React that your component needs to do something after rendering. React remembers the fucntion you passed and calls it later.
+
+7. In our case, this useEffect function runs after rendering 
+   our component.  
+
+8. UseEffect accepts two parameters; a function and an
+   array. The array accepts the list of dependencies. By having the array after rendering your component, the function will run only once. 
+9. In the function under the useEffect hook, we will send an ajax request to our backend and fetch our products.
+
+10. To send an ajax request, define a function to fetch data i.e. an async function. (ajax is an async operation)
+
+10. In the body of this function, fetch the data from axios 
+    request; put await before axios and call the get method of axios and add the api address. The array in backend will be transferred to data in frontend.
+
+11. Next, set the products to the data we're getting from
+    backend.
+12. Call fetchdata to activate the function.
+
+13. Remove static data (delete import data)
+
+
+
+
+The function looks like this:
+```
+const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const { data } = await axios.get ('/api/products');
+            setProducts(data);
+        };
+        fetchData();
+    }, [])
+```
+
+
+
+
 
 
 
