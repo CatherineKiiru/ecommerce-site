@@ -275,7 +275,7 @@ Note: in server side programming, you need to append the .js extension to your f
 Note: installing development packages require two dashes i.e
 --save-dev nodemon
 
-# Loading products from backend
+# Loading products from backend and showing through frontend
 1. Start by setting a proxy in package.json that points to 
    the backend port i.e. the proxy is an address that points to the backend. Use the IP address of the local host. When a user sends a request to the API, it redirects your request to the backend.
 
@@ -316,13 +316,9 @@ Note: installing development packages require two dashes i.e
 12. Call fetchdata to activate the function.
 
 13. Remove static data (delete import data)
-
-
-
-
-The function looks like this:
-```
-const [products, setProducts] = useState([]);
+    The function looks like this (HomeScreen.js):
+   ```
+   const [products, setProducts] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             const { data } = await axios.get ('/api/products');
@@ -330,7 +326,18 @@ const [products, setProducts] = useState([]);
         };
         fetchData();
     }, [])
-```
+   ```
+14. Always stop the backend and frontend, then run them
+    again is because of the proxy we set in the package.json file. So always stop then first run your backend then fronend project. 
+
+# Creating 2 components: "loading while fetching data from backend" and "show an error" when fetching data from backend
+
+1. Start by setting another hook to show loading in 
+   HomeScreen.js i.e.
+      const[loading, setLoading] = useState(false); the default value for loading is false because by default we're not loading anything.
+
+2. Next, use setLoading before sending an axios ajax request 
+   i.e. place setLoading before the ajax command
 
 
 
