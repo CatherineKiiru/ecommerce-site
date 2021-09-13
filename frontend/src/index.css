@@ -154,13 +154,13 @@ img.large{ /*This element adjusts image size according to screen. It creates a r
 .success{
   color: #20a020;
 }
-.error{
+.danger{
   color: #a2020a;
 }
 .alert{
   padding: 1rem;
   border: 0.1rem solid transparent; /*because the color will be set by other classes*/
-  border:0.5rem;
+  border-radius:0.5rem;
 }
 .alert-info{
   color: #2020a0;

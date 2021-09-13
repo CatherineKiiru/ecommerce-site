@@ -328,7 +328,7 @@ Note: installing development packages require two dashes i.e
     }, [])
    ```
 14. Always stop the backend and frontend, then run them
-    again is because of the proxy we set in the package.json file. So always stop then first run your backend then fronend project. 
+    again. This is because of the proxy we set in the package.json file. So always stop then first run your backend then frontend project. 
 
 # Creating 2 components: "loading while fetching data from backend" and "show an error" when fetching data from backend
 
@@ -338,6 +338,104 @@ Note: installing development packages require two dashes i.e
 
 2. Next, use setLoading before sending an axios ajax request 
    i.e. place setLoading before the ajax command
+
+3. Set another hook for error. Duplicate the setLoading hook 
+   then rename it to [error, setError]. the use State will be false because there's no error at the moment
+
+4. To catch the error, wrap the ajax request inside 
+   "trycatch" statement sets apart a piece of code to try, then generates a response when an exception is presented. 
+   So:
+   Try_statements - specifies the code to be executed
+   Catch_statements - code that executes if the try statement throws an exception.
+
+   In this case, if there's an error fetching data from the backend, the catch statement throws out the setError message for error hook.
+
+5. Loading the error inside the component section (the return section): 
+   Start by rendering loading i.e. 
+   
+   If loading is true, render the LoadingBox component.
+      {loading? <LoadingBox></LoadingBox>
+      Otherwise(add a colon :)
+   if there's an error, render the messageBox component and show the error message.
+      error?<MessageBox>{error}</MessageBox>
+      Otherwise(add a colon :)
+   If there's no loading and no error, render the products.
+
+6. Proceed to create the MessageBox and LoadingBox components. 
+7. Go to index.css. Create an alert class and alert error 
+   class. 
+8. In the home screen, becasue the message box is an error  
+   message, set the variant to danger. Then change the alert-error class to alert-danger class in index.css. Also change error to danger in the ProductScreen "unavailable" span.
+
+9. Import the messagebox and loading box code at the top of the  
+   the file.
+10. To display the error message, stop the backend (ctrl+c). 
+    Frontend will show an error on you browser's screen.
+11. In summary, we created 2 components:
+      a) to show loading while sending an ajax request to 
+         backend server (LoadingBox.JS)
+      b) to show "error" if there's an error while fetching data 
+         from the backend
+
+## Step-by-Step flow of implementation:
+1. In package.json in frontend, we set the proxy url to fetch 
+   data from backend.
+
+2. Installed axios library to send ajax requests to the backend.
+
+3. Created 2 components: a loadingBox component to show loading  
+   using font awesome's spinner icon and a MessageBox to show the message based on the message variant(if it's error, we show red message, if it's info, we show blue message.)
+
+4. In the HomeScreen, we used React Hooks to manage the 
+   component's state and useEffect to send ajax requests only once and after rendering the component. 
+
+4. In index.css, we added 3 classes for alert, alert-info and 
+   alert danger
+
+# Installing ESlint
+1. Helps in analyzing your code to finde problems and fix 
+   code errors
+
+2. Start by installing: npm install -D eslint. This tells   
+   the engine to install the development dependencies so as not to ship to production. 
+
+3. After installing eslint run it through it's containing folder 
+   i.e. ./node_modules/.bin/eslint --init. The init parameter initilizes an eslint project. Accept all default questions but choose both node and browser for where to run your code
+
+# Installing Redux
+1. Install Redux into your frontend folder. Redux manages the 
+   state of your React app and gives you an overview of your app's functions. run npm install reduc react-redux
+
+2. Redux will now fetch products from the backend instead of 
+   using ajax request. Redux will also put the products in redux state instead of component state.
+
+3. In our case, we will dispatch an action from react view then 
+   send it to the redux store to make a change in the state of our application. 
+
+4. So to request a state change, create an action and dispatch action to the Redux store. 
+
+5. The redux store has 2 items; state and reducer. "State" is the current state of our application and reducer is a function that takes the current state, makes a change and returns a new one.
+
+6. Redux stores a history of states which allows for better 
+   management and predictability of the state of our applications.
+
+7. Create a simple store (store.js) that can be used in 
+   React app. It simply returns a list of products (from data.js) in frontend. 
+
+8. Use the redux store in index.js(frontend/src) and create 
+   a <Provider> component. This component avails the Redux store to any nested code that needs to access the Redux store.
+
+9. Proceed to add the Redux extension then check dev tools. 
+   Redux will show but will idnicate there's "no store found".
+
+10. Start by installing Redux-thunk. This makes it possible to send ajax requests in redux actions. 
+
+11. To add Redux thunk, add the parameter; compose(applyMiddleware(thunk)) then import this component (check store.js)
+
+12. 
+
+
+
 
 
 
