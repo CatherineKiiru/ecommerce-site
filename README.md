@@ -34,8 +34,8 @@ Note: In React, to convert static data to dynamic data, use curly braces
    `product.image` and alt to `product.name`
 
    In summary:
-1. We created product component through Product.js
-2. We created rating component through Rating.js
+   - We created product component through Product.js
+   - We created rating component through Rating.js
 
 # Modular & component based code 
 This is highly organized code that subdivides a computer program into seperate sub-programs. Known as modular programming/architecture,
@@ -220,10 +220,10 @@ In summary:
 4. Create server.js file. This file is the entry point for our backend
    application
 5. Create an express server by typing "npm install express" command
-   Express is a node package that helps create easy servers
-       update package.json and set type to module
-       Add .js to imports
-       npm install express
+   - Express is a node package that helps create easy servers
+   - update package.json and set type to module
+   - Add .js to imports
+   - npm install express
 6. Add start command as node backend/server.js
 7. Require express
 8. create route for / Server is ready
@@ -289,7 +289,7 @@ Note: installing development packages require two dashes i.e
    The usage of a React hook to manage the state of your React component is demonstrated below:
     `const [products, SetProducts] = useState ([])` 
    
-   The default value of products is an empty array. When you want to change the value of products, use the setProducts function.
+   - The default value of products is an empty array. When you want to change the value of products, use the setProducts function.
 
 5. Import useState from React and paste it at the top of 
    your HomScreen.js file.
@@ -297,7 +297,7 @@ Note: installing development packages require two dashes i.e
 6. Once you define the hooks, fill in the products. To do 
    this, apply the useEffect function. 
    
-   useEffect is another hook that tells React that your component needs to do something after rendering. React remembers the fucntion you passed and calls it later.
+   - useEffect is another hook that tells React that your component needs to do something after rendering. React remembers the fucntion you passed and calls it later.
 
 7. In our case, this useEffect function runs after rendering 
    our component.  
@@ -308,15 +308,14 @@ Note: installing development packages require two dashes i.e
 
 10. To send an ajax request, define a function to fetch data i.e. an async function. (ajax is an async operation)
 
-10. In the body of this function, fetch the data from axios 
+11. In the body of this function, fetch the data from axios 
     request; put await before axios and call the get method of axios and add the api address. The array in backend will be transferred to data in frontend.
 
-11. Next, set the products to the data we're getting from
+12. Next, set the products to the data we're getting from
     backend.
-12. Call fetchdata to activate the function.
+13. Call fetchdata to activate the function.
 
-13. Remove static data (delete import data)
-    The function looks like this (HomeScreen.js):
+14. Remove static data (delete import data). The function looks like this (HomeScreen.js):
    ```
    const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -353,6 +352,7 @@ Note: installing development packages require two dashes i.e
 5. Loading the error inside the component section (the return section): 
    Start by rendering loading i.e. 
    
+   ```
    If loading is true, render the LoadingBox component.
       {loading? <LoadingBox></LoadingBox>
       Otherwise(add a colon :)
@@ -360,21 +360,24 @@ Note: installing development packages require two dashes i.e
       error?<MessageBox>{error}</MessageBox>
       Otherwise(add a colon :)
    If there's no loading and no error, render the products.
+   ```
 
 6. Proceed to create the MessageBox and LoadingBox components. 
 7. Go to index.css. Create an alert class and alert error 
    class. 
-8. In the home screen, becasue the message box is an error  
-   message, set the variant to danger. Then change the alert-error class to alert-danger class in index.css. Also change error to danger in the ProductScreen "unavailable" span.
+8. In the home screen, becasue the message box is an error message, set the variant to danger. 
+   
+   Then change the alert-error class to alert-danger class in index.css. Also change error to danger 
+   in the ProductScreen "unavailable" span.
 
 9. Import the messagebox and loading box code at the top of the  
    the file.
 10. To display the error message, stop the backend (ctrl+c). 
     Frontend will show an error on you browser's screen.
 11. In summary, we created 2 components:
-      a) to show loading while sending an ajax request to 
+    - to show loading while sending an ajax request to 
          backend server (LoadingBox.JS)
-      b) to show "error" if there's an error while fetching data 
+    - to show "error" if there's an error while fetching data 
          from the backend
 
 ## Step-by-Step flow of implementation:
@@ -389,7 +392,7 @@ Note: installing development packages require two dashes i.e
 4. In the HomeScreen, we used React Hooks to manage the 
    component's state and useEffect to send ajax requests only once and after rendering the component. 
 
-4. In index.css, we added 3 classes for alert, alert-info and 
+5. In index.css, we added 3 classes for alert, alert-info and 
    alert danger
 
 # Installing ESlint
@@ -404,10 +407,11 @@ Note: installing development packages require two dashes i.e
 
 # Installing Redux
 1. Install Redux into your frontend folder. Redux manages the 
-   state of your React app and gives you an overview of your app's functions. run npm install reduc react-redux
+   state of your React app and gives you an overview of your app's functions. run npm install redux react-redux
 
 2. Redux will now fetch products from the backend instead of 
    using ajax request. Redux will also put the products in redux state instead of component state.
+
 
 3. In our case, we will dispatch an action from react view then 
    send it to the redux store to make a change in the state of our application. 
@@ -419,30 +423,69 @@ Note: installing development packages require two dashes i.e
 6. Redux stores a history of states which allows for better 
    management and predictability of the state of our applications.
 
-7. Create a simple store (store.js) that can be used in 
+## Working with redux
+1. Create a simple store (store.js) that can be used in 
    React app. It simply returns a list of products (from data.js) in frontend. 
 
-8. Use the redux store in index.js(frontend/src) and create 
+2. Use the redux store in index.js(frontend/src) and create 
    a <Provider> component. This component avails the Redux store to any nested code that needs to access the Redux store.
 
-9. Proceed to add the Redux extension then check dev tools. 
+3. Proceed to add the Redux extension then check dev tools. 
    Redux will show but will idnicate there's "no store found".
 
-10. Start by installing Redux-thunk. This makes it possible to send ajax requests in redux actions. 
+4. Start by installing Redux-thunk. This makes it possible 
+   to send ajax requests in redux actions. 
 
-11. To add Redux thunk, add the parameter; compose(applyMiddleware(thunk)) then import this component (check store.js)
+5. To add Redux thunk, add the parameter; compose
+   (applyMiddleware(thunk)) then import this component (check store.js). In essence, we created a store.js and connected it to chrome developer tools.
 
-12. 
+6. To use Redux in a real world scenario, open HomeScreen.js. 
+   Create an action to fetch data from the backend
 
+7. Instead of running an ajax request in component, move it to an 
+   action.
 
+8. To create an action, create a constants folder then a 
+   productConstants.js file. Inside this file, define 3 constants:
+      
+   ``` 
+      export const PRODUCT_LIST_REQUEST = PRODUCT_LIST_REQUEST
+      export const PRODUCT_LIST_SUCCESS = PRODUCT_LIST_SUCCESS
+      export const PRODUCT_LIST_FAIL = PRODUCT_LIST_FAIL
+   ```
 
+9. We define three constants to fetch list of products from 
+   backend because of the async nature of ajax requests.
 
+10. Next, define actions to get list of products. Create a new 
+    folder under actions and create a file called productActions.js
 
+11. Actions is a function so export it the same ways as 
+    constants. Note that this arrow function returns another async function that accepts dispatch as a parameter. 
+    
+12. Dispatch will be filled by Redux thunk. In the body of the 
+    function below, dispatch a product list request. Dispatch accept an object. The object has a type as indicated below:
 
+   ``` 
+      export const listProducts = () => async (dispatch) => {
+         dispatch({
+            type: PRODUCT_LIST_REQUEST
+         })
+      }
+   ```
+13. Make sure to import PRODUCT_LIST_REQUEST from "../constants/
+    productConstants
 
+14. To fetch data from backend, use the try catch method. If 
+    there's an error in getting backend data, dispatch PRODUCT_LIST_FAIL through the catch part
 
+15. In the try part, set an ajax request by copy pasting the code 
+    from HomeScreen.js to productActions.js. The ajax request gets the list of products. Auto import Axios or type to import manually.
+    
+    - After getting data from backend, dispatch another action to 
+    change the state of Redux then update HomeScreen.js to show products.
 
-
-
-
-
+    - To dispatch an action, set the type of it an in this case, 
+    the type is PRODUCT_LIST_SUCCESS imported from productConstants.js. 
+    
+    - Also set a payload which contains data from backend i.e. payload: data
