@@ -405,6 +405,26 @@ Note: installing development packages require two dashes i.e
 3. After installing eslint run it through it's containing folder 
    i.e. ./node_modules/.bin/eslint --init. The init parameter initilizes an eslint project. Accept all default questions but choose both node and browser for where to run your code
 
+# What is Redux
+
+1. Redux is a pattern and library for managing and updating 
+   an application's state using events called "actions".
+
+2. This library servers as a store for states that'll be 
+   used across your application. This store contains rules that ensure the app's state is managed and updated in a predictable way. 
+   
+3. Often times, Redux manages the "global" state which are 
+   states used across different parts of your app.
+
+3.  The patterns, tools and rules in Redux simplifies app 
+    updates and how the app's logic behaves when you imlement those changes. 
+
+3. The redux store has 2 items; state and reducer. "State" 
+   is the current state of our application and reducer is a function that takes the current state, makes a change and returns a new one.
+
+4. Redux stores a history of states which allows for better 
+   management and predictability of the state of our applications.
+
 # Installing Redux
 1. Install Redux into your frontend folder. Redux manages the 
    state of your React app and gives you an overview of your app's functions. run npm install redux react-redux
@@ -416,12 +436,7 @@ Note: installing development packages require two dashes i.e
 3. In our case, we will dispatch an action from react view then 
    send it to the redux store to make a change in the state of our application. 
 
-4. So to request a state change, create an action and dispatch action to the Redux store. 
-
-5. The redux store has 2 items; state and reducer. "State" is the current state of our application and reducer is a function that takes the current state, makes a change and returns a new one.
-
-6. Redux stores a history of states which allows for better 
-   management and predictability of the state of our applications.
+4. So to request a state change, create an action and dispatch action to the Redux store.
 
 ## Working with redux
 1. Create a simple store (store.js) that can be used in 
@@ -463,8 +478,8 @@ Note: installing development packages require two dashes i.e
 11. Actions is a function so export it the same ways as 
     constants. Note that this arrow function returns another async function that accepts dispatch as a parameter. 
     
-12. Dispatch will be filled by Redux thunk. In the body of the 
-    function below, dispatch a product list request. Dispatch accept an object. The object has a type as indicated below:
+12. Dispatch will be filled by Redux thunk. In the body of 
+    the function below, dispatch a product list request. Dispatch accept an object. The object has a type as indicated below:
 
    ``` 
       export const listProducts = () => async (dispatch) => {
@@ -473,19 +488,104 @@ Note: installing development packages require two dashes i.e
          })
       }
    ```
-13. Make sure to import PRODUCT_LIST_REQUEST from "../constants/
-    productConstants
+13. Make sure to import PRODUCT_LIST_REQUEST from "../ 
+    constants/productConstants
 
 14. To fetch data from backend, use the try catch method. If 
     there's an error in getting backend data, dispatch PRODUCT_LIST_FAIL through the catch part
 
-15. In the try part, set an ajax request by copy pasting the code 
-    from HomeScreen.js to productActions.js. The ajax request gets the list of products. Auto import Axios or type to import manually.
+15. For the try part, set an ajax request by copy pasting   
+    the code from HomeScreen.js to productActions.js. The ajax request gets the list of products. Auto import Axios or type to import manually.
     
-    - After getting data from backend, dispatch another action to 
-    change the state of Redux then update HomeScreen.js to show products.
+    - After getting data from backend, dispatch another action to change the state of Redux then update HomeScreen.js to show products.
 
-    - To dispatch an action, set the type of it an in this case, 
-    the type is PRODUCT_LIST_SUCCESS imported from productConstants.js. 
+    - To dispatch an action, set the type of it an in this case, the type is PRODUCT_LIST_SUCCESS imported from productConstants.js. 
     
     - Also set a payload which contains data from backend i.e. payload: data
+
+16. For the catch part, dispatch a fail scenario by adding 
+    the action; {type:PRODUCT_LIST_FAIL, payload:error.message}
+
+17. Next, create a reducer to respond to all three actions. 
+    Do this by creating a reducer folder inside src, then create a file called productReducers.js
+
+18. Inside product reducer, define product list reducer. 
+    This is a function that accepts 2 parameters: state and action. In the body of the reducer, add a switch case with action.type. See the code below:
+
+   ```
+    const productListReducer = (state, action) =>{
+      switch(action,type)
+    }
+   ```
+
+19. Action.type is the values that you enter in 
+    PRODUCT_LIST-REQUEST/FAIL/SUCCESS (in productActions.js)
+    Action.type should have a list of cases
+
+20. If the case is PRODUCT_LIST_REQUEST, it chould be 
+    auto-imported from productConstants.
+
+21. Next, return new state and set loading to true. This is 
+    because when you dispatch request action, you're sending an ajax request to backend and waiting on a reponse.
+      ` return {Loading: true }; `
+
+22. Next, add default case by returning current state. This 
+    means that you're not changing the state and are returning the previous state. 
+      `  default: state; `
+
+23. Add another case for PRODUCT_LIST_SUCCESS, return and 
+    set loading to false. Then, set products to action.payload.
+      
+      ```
+      case PRODUCT_LIST_SUCCESS:
+         return { Loading: false, products: action.payload }
+      ```
+  -  The scenario above is modelled according to the productActions.js dispatch. When we dispatched THE PRODUCT_LIST_SUCCESS type, we set the payload by the data we get from backend. 
+
+   Subsequently, in the productReducer.js, you fetched the products, which is a variable in Redux store by the data that we get from backend.
+
+ 24. Finally, create the last case for PRODUCT_LIST_FAIL
+      
+      ```
+      case PRODUCT_LIST_FAIL:
+            return{ loading: false, error: action.payload }
+      ```  
+25. Proceed to export productListReducer and set the default 
+    state to an empty array. If you don't do this, you'll get an error. If you want to show products in the homescreen, it should be an empty array, not null.
+
+26. Adding productReducer to store.js by updating reducer.  
+    Instead of having static products from frontend, delete (state, action) =>{ return {products: data.products };}; from const reducer and add combineReducers
+
+27. combineReducers can accept object parameters. This 
+    objects introduce reducers to the Redux store. 
+    
+   - add the first reducer to the body of the function above.The first reducer is the productList and comes from productListReducer. Proceed to import the reducer from productReducers.js
+
+28. Since you changed the static products to combineReducers 
+    (no.26), delete the import data statement in store.js
+
+29. Next get rid of all React Hooks from HomeScreen.js and 
+    add a product list from Redux store. To get an object from Redux store, utilize the useSelector which is a function from React-Redux.
+
+30. useSelector can accept a function that has a redux state 
+    as a parameter. From this parameter, we just need to get 3 values from the product list (see homeScreen.js) i.e.
+      ` const { loading, error, products } = productList; `
+
+31. Now you don't need fetchdata anymore, so you can delete 
+    that section and dispatch an action called listProducts. import it and make sure to put round brackets after listProducts since it's a function. 
+
+    ```
+      useEffect(() => {
+          dispatch(listProducts());
+      }, []);
+   ```
+
+32. Proceed to delete import 'Axios' and 'useState' from import React. (Don't delete useEffect). 
+
+33. Lastly, import dispatch by defining the function:
+      ` const dispatch = useDispatch(); `
+  
+  - useDispatch is a function in React-Redux so import it too. Remember to add round brackets since it's a function. 
+
+34. By using the useDispatch Hook, we can dispatch any Redux 
+    action inside React components. 
