@@ -13,5 +13,11 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        echo 'Fake Test'
+      }
+    }
+
   }
 }
