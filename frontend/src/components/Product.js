@@ -1,8 +1,9 @@
 import React from 'react'
 import Rating from './Rating';
 
+
 export default function Product(props) {
-    const {product} = props; /*defines product into curly brackets so as to fetch product from props above */
+    const { product } = props; /*defines product into curly brackets so as to fetch product from props above */
     return (
         <div>
             <div key={product._id} className="card">
